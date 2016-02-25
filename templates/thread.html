@@ -1,0 +1,16 @@
+<div>
+    <h1>{{ thread.title }} (by {{ thread.username }})</h1>
+
+    <form name="newCommentForm">
+        <input type="text" ng-model="newCommentText" placeholder="Write a comment..." required/>
+        <!-- is given an ng model of newComment so the value of this input can be passed into createComment -->
+        <input type="text" ng-model="username" placeholder="Username..." required/>
+        <!-- is given an ng model of username so the value of this input can be passed into createComment -->
+        <button ng-disabled="newCommentForm.$invalid" ng-click="createComment(username, newCommentText)">Add Comment</button>
+        <!-- ng-disabled requires values in the form input fields in order to enbable clicking. -->
+    </form>
+
+    <ul>
+        <li ng-repeat="comment in comments">{{ comment.username }}: {{ comment.text }}</li>
+    </ul>
+</div>
